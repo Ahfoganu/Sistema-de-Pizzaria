@@ -37,6 +37,7 @@ readline-sync – interação via terminal
 JSON – armazenamento de dados
 
 📂 Estrutura de Pastas
+
 pizzaria-ts/
 ├── src/
 │   ├── controllers/  # CRUD e relatórios
@@ -45,9 +46,9 @@ pizzaria-ts/
 │   ├── utils/        # funções de leitura/escrita, geração de comprovantes
 │   └── index.ts      # arquivo principal CLI
 ├── comprovantes/     # arquivos .txt de pedidos
-├── node_modules/     
-├── package.json      
-├── tsconfig.json     
+├── node_modules/
+├── package.json
+├── tsconfig.json
 └── README.md
 
 🚀 Como Rodar
@@ -106,4 +107,5 @@ MIT License – veja arquivo LICENSE para detalhes.
 
 
 Christian Simões – Projeto P1 – Ciência da Computação / Programação TypeScript
+
 
