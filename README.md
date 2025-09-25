@@ -1,68 +1,83 @@
 🍕 Sistema de Pizzaria – Projeto P1 (TypeScript + Node.js)
 
-Bem-vindo ao Sistema de Pizzaria desenvolvido em TypeScript, inspirado no estilo de projetos didáticos como o estacionamento-type
-.
-Este projeto simula o gerenciamento completo de uma pizzaria em CLI (linha de comando), com cadastro de clientes, produtos, pedidos, geração de comprovantes e relatórios de vendas.
+
+Sistema de gerenciamento completo de pizzaria em CLI, com cadastro de clientes, produtos, pedidos, geração de comprovantes .txt e relatórios.
 
 🎯 Objetivo do Projeto
 
-O objetivo deste sistema é proporcionar:
+Praticar CRUD em TypeScript
 
-Prática de CRUD (Create, Read, Update, Delete) em TypeScript.
+Manipular arquivos JSON para persistência
 
-Manipulação de arquivos JSON para persistência de dados.
+Gerar comprovantes de pedidos
 
-Geração de comprovantes de compra em .txt.
+Criar relatórios de vendas
 
-Criação de relatórios simples de vendas por dia e mês.
+Estruturar projeto modular e comentado para aprendizado
 
-Estruturação de um projeto modular e comentado, facilitando aprendizado e manutenção.
+📌 Funcionalidades
+Funcionalidade	Descrição
+Cadastro de Clientes	Nome, telefone, ID único
+Cadastro de Produtos	Nome, preço, categoria
+Registro de Pedidos	Cliente + produtos, total calculado
+Geração de Comprovantes	Arquivo .txt em comprovantes/
+Relatórios de Vendas	Por dia e por mês
+Extras	Histórico de compras, modularidade para expansão
 
-Este projeto é perfeito para estudantes de programação ou quem quer entender como construir sistemas simples sem banco de dados complexo.
+🛠 Tecnologias Utilizadas
 
-✨ Funcionalidades Principais
-1️⃣ Cadastro de Clientes
+Node.js – execução em terminal
 
-Registrar clientes com nome, telefone e futuramente endereço.
+TypeScript – tipagem segura e modularidade
 
-Listar, atualizar e remover clientes.
+fs (File System) – leitura/escrita de arquivos JSON
 
-Cada cliente possui um ID único (UUID) gerado automaticamente.
+readline-sync – interação via terminal
 
-2️⃣ Cadastro de Produtos
+JSON – armazenamento de dados
 
-Produtos classificados em categorias: pizza, refrigerante, sobremesa.
+📂 Estrutura de Pastas
+pizzaria-ts/
+├── src/
+│   ├── controllers/  # CRUD e relatórios
+│   ├── data/         # arquivos JSON
+│   ├── models/       # interfaces Cliente, Produto, Pedido
+│   ├── utils/        # funções de leitura/escrita, geração de comprovantes
+│   └── index.ts      # arquivo principal CLI
+├── comprovantes/     # arquivos .txt de pedidos
+├── node_modules/     
+├── package.json      
+├── tsconfig.json     
+└── README.md
 
-Cada produto possui ID, nome, preço e categoria.
+🚀 Como Rodar
+1. Instalar dependências
+npm install
 
-Permite listar produtos existentes.
+2. Rodar o projeto
+npm run dev
 
-3️⃣ Registro de Pedidos
+3. Navegar pelo menu CLI
 
-Registrar pedidos de clientes selecionando produtos pelo ID.
+Opção 1: Cadastrar cliente
 
-Calcula automaticamente o total do pedido.
+Opção 2: Listar clientes
 
-Permite consultar todos os pedidos registrados.
+Opção 3: Cadastrar produto
 
-4️⃣ Geração de Comprovantes em .txt
+Opção 4: Listar produtos
 
-Cada pedido gera um arquivo .txt na pasta comprovantes/.
+Opção 5: Fazer pedido (gera comprovante .txt)
 
-O comprovante contém:
+Opção 6: Listar pedidos
 
-ID do pedido
+Opção 7: Relatório por dia
 
-Dados do cliente
+Opção 8: Relatório por mês
 
-Lista de produtos e preços
+Opção 0: Sair
 
-Total do pedido
-
-Data e hora da compra
-
-Exemplo de comprovante:
-
+📄 Exemplo de Comprovante
 ===== COMPROVANTE DE COMPRA =====
 Pedido ID: 1727283546198
 Cliente: João Silva - Tel: 99999-9999
@@ -73,100 +88,22 @@ Itens:
 Total: R$ 34.90
 ===============================
 
-5️⃣ Relatórios de Vendas
-
-Quantidade de pizzas vendidas por dia.
-
-Quantidade de pizzas vendidas por mês.
-
-Permite analisar rapidamente o desempenho da pizzaria.
-
-6️⃣ Extras
-
-Histórico de compras de cada cliente.
-
-Sistema modular que permite fácil expansão (ex.: promoções, formas de pagamento, integração com interface web futura).
-
-🛠 Tecnologias Utilizadas
-
-Node.js – ambiente de execução JavaScript/TypeScript.
-
-TypeScript – linguagem fortemente tipada para garantir segurança e manutenção.
-
-fs (File System) – manipulação de arquivos para persistência de dados.
-
-readline-sync – entrada de dados via terminal.
-
-JSON – armazenamento estruturado de clientes, produtos e pedidos.
-
-📂 Estrutura de Pastas
-pizzaria-ts/
-├── src/
-│   ├── controllers/       # Lógica de CRUD e relatórios
-│   │   ├── ClienteController.ts
-│   │   ├── ProdutoController.ts
-│   │   └── PedidoController.ts
-│   ├── data/              # Arquivos JSON de persistência
-│   │   ├── clientes.json
-│   │   ├── produtos.json
-│   │   └── pedidos.json
-│   ├── models/            # Tipos e interfaces (Cliente, Produto, Pedido)
-│   │   ├── Cliente.ts
-│   │   ├── Produto.ts
-│   │   └── Pedido.ts
-│   ├── utils/             # Funções auxiliares de leitura/escrita e geração de comprovantes
-│   │   └── fileHandler.ts
-│   └── index.ts           # Arquivo principal (CLI)
-├── comprovantes/          # Recebidos gerados automaticamente em .txt
-├── node_modules/          # Dependências do projeto
-├── package.json
-├── tsconfig.json
-└── README.md
-
-🚀 Como Executar
-
-Instalar dependências:
-
-npm install
-
-
-Rodar em modo desenvolvimento (usando ts-node):
-
-npm run dev
-
-
-Navegar pelo sistema:
-
-O sistema funciona via menu CLI, permitindo escolher opções numericamente (ex.: cadastrar cliente, listar produtos, fazer pedido).
-
-Todos os dados são salvos automaticamente nos arquivos JSON.
-
-Comprovantes são gerados em comprovantes/.
-
-Exemplo de execução:
-
-Escolha: 1
-Nome: João Silva
-Telefone: 99999-9999
-Cliente adicionado com sucesso!
-
 💡 Dicas de Uso
 
-Antes de rodar, verifique se a pasta data/ existe com os arquivos clientes.json, produtos.json e pedidos.json (mesmo vazios []).
+Verifique se src/data/*.json existe (clientes.json, produtos.json, pedidos.json) com conteúdo [] vazio.
 
-Comprovantes são sempre salvos com nome pedido_<ID>.txt.
+Comprovantes são salvos automaticamente em comprovantes/ com nome pedido_<ID>.txt.
 
-IDs de clientes, produtos e pedidos são UUIDs gerados automaticamente, garantindo unicidade.
+IDs de clientes, produtos e pedidos são UUIDs únicos.
 
-📝 Observações Finais
+Sistema modular: fácil de expandir para interface web, promoções, formas de pagamento etc.
 
-Projeto desenvolvido como atividade acadêmica P1.
+📄 Licença
 
-Pode ser facilmente expandido para interface web, integração com banco real ou funcionalidades adicionais.
-
-Todo o sistema é modular e comentado, facilitando aprendizado em TypeScript.
+MIT License – veja arquivo LICENSE para detalhes.
 
 📌 Autor
 
 
 Christian Simões – Projeto P1 – Ciência da Computação / Programação TypeScript
+
