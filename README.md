@@ -1,6 +1,7 @@
 🍕 Sistema de Pizzaria – Projeto P1 (TypeScript + Node.js)
 
 
+
 Sistema de gerenciamento completo de pizzaria em CLI, com cadastro de clientes, produtos, pedidos, geração de comprovantes .txt e relatórios.
 
 🎯 Objetivo do Projeto
@@ -15,14 +16,23 @@ Criar relatórios de vendas
 
 Estruturar projeto modular e comentado para aprendizado
 
+
 📌 Funcionalidades
+
 Funcionalidade	Descrição
+
 Cadastro de Clientes	Nome, telefone, ID único
+
 Cadastro de Produtos	Nome, preço, categoria
+
 Registro de Pedidos	Cliente + produtos, total calculado
+
 Geração de Comprovantes	Arquivo .txt em comprovantes/
+
 Relatórios de Vendas	Por dia e por mês
+
 Extras	Histórico de compras, modularidade para expansão
+
 
 🛠 Tecnologias Utilizadas
 
@@ -36,22 +46,36 @@ readline-sync – interação via terminal
 
 JSON – armazenamento de dados
 
+
 📂 Estrutura de Pastas
 
 pizzaria-ts/
+
 ├── src/
+
 │   ├── controllers/  # CRUD e relatórios
+
 │   ├── data/         # arquivos JSON
+
 │   ├── models/       # interfaces Cliente, Produto, Pedido
+
 │   ├── utils/        # funções de leitura/escrita, geração de comprovantes
+
 │   └── index.ts      # arquivo principal CLI
+
 ├── comprovantes/     # arquivos .txt de pedidos
+
 ├── node_modules/
+
 ├── package.json
+
 ├── tsconfig.json
+
 └── README.md
 
+
 🚀 Como Rodar
+
 1. Instalar dependências
 npm install
 
@@ -78,16 +102,27 @@ Opção 8: Relatório por mês
 
 Opção 0: Sair
 
+
 📄 Exemplo de Comprovante
+
 ===== COMPROVANTE DE COMPRA =====
+
 Pedido ID: 1727283546198
+
 Cliente: João Silva - Tel: 99999-9999
+
 Data: 2025-09-25T17:45:32.123Z
+
 Itens:
+
  - Pizza Margherita (R$ 29.90)
+   
  - Refrigerante Lata (R$ 5.00)
+   
 Total: R$ 34.90
+
 ===============================
+
 
 💡 Dicas de Uso
 
@@ -99,13 +134,16 @@ IDs de clientes, produtos e pedidos são UUIDs únicos.
 
 Sistema modular: fácil de expandir para interface web, promoções, formas de pagamento etc.
 
+
 📄 Licença
 
 MIT License – veja arquivo LICENSE para detalhes.
+
 
 📌 Autor
 
 
 Christian Simões – Projeto P1 – Ciência da Computação / Programação TypeScript
+
 
 
