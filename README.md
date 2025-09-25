@@ -168,4 +168,5 @@ Todo o sistema é modular e comentado, facilitando aprendizado em TypeScript.
 
 📌 Autor
 
+
 Christian Simões – Projeto P1 – Ciência da Computação / Programação TypeScript
