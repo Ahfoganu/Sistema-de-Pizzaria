@@ -1,149 +1,146 @@
-🍕 Sistema de Pizzaria – Projeto P1 (TypeScript + Node.js)
+# 🍕 Sistema de Pizzaria (TypeScript + Node.js)
 
+Aplicativo CLI (linha de comando) para gerenciar Clientes, Produtos, Pedidos e Comprovantes de Compra de uma pizzaria. Os dados são persistidos em arquivos JSON, e cada pedido gera um TXT de comprovante. Ideal para aulas de lógica de programação e aprendizado de TypeScript.
 
+## ✨ Recursos
 
-Sistema de gerenciamento completo de pizzaria em CLI, com cadastro de clientes, produtos, pedidos, geração de comprovantes .txt e relatórios.
+Clientes: cadastro, listagem, atualização e remoção.
 
-🎯 Objetivo do Projeto
+Produtos: cadastro, listagem, categorias (pizza, refri, sobremesa).
 
-Praticar CRUD em TypeScript
+Pedidos: registro de pedidos, cálculo de total e histórico.
 
-Manipular arquivos JSON para persistência
+Comprovantes: gerados automaticamente em `comprovantes/`, incluindo ID, cliente, itens, total e data.
 
-Gerar comprovantes de pedidos
+Relatórios de Vendas: quantidade de pizzas vendidas por dia e por mês.
 
-Criar relatórios de vendas
+Criação automática de pastas e arquivos JSON na primeira execução.
 
-Estruturar projeto modular e comentado para aprendizado
+## 📁 Estrutura de Pastas
 
-
-📌 Funcionalidades
-
-Funcionalidade	Descrição
-
-Cadastro de Clientes	Nome, telefone, ID único
-
-Cadastro de Produtos	Nome, preço, categoria
-
-Registro de Pedidos	Cliente + produtos, total calculado
-
-Geração de Comprovantes	Arquivo .txt em comprovantes/
-
-Relatórios de Vendas	Por dia e por mês
-
-Extras	Histórico de compras, modularidade para expansão
-
-
-🛠 Tecnologias Utilizadas
-
-Node.js – execução em terminal
-
-TypeScript – tipagem segura e modularidade
-
-fs (File System) – leitura/escrita de arquivos JSON
-
-readline-sync – interação via terminal
-
-JSON – armazenamento de dados
-
-
-📂 Estrutura de Pastas
-
+```
 pizzaria-ts/
+├─ src/
+│   ├─ controllers/       # Lógica de CRUD e relatórios
+│   ├─ models/            # Tipos e interfaces (Cliente, Produto, Pedido)
+│   ├─ utils/             # Funções auxiliares e geração de comprovantes
+│   ├─ data/              # Arquivos JSON de persistência
+│   └─ index.ts           # Arquivo principal (CLI)
+├─ comprovantes/          # Comprovantes .txt gerados automaticamente
+├─ node_modules/          # Dependências
+├─ package.json
+├─ tsconfig.json
+└─ README.md
+```
 
-├── src/
+Arquivos JSON
 
-│   ├── controllers/  # CRUD e relatórios
+`data/clientes.json` → lista de clientes (id, nome, telefone)
 
-│   ├── data/         # arquivos JSON
+`data/produtos.json` → lista de produtos (id, nome, preço, categoria)
 
-│   ├── models/       # interfaces Cliente, Produto, Pedido
+`data/pedidos.json` → lista de pedidos (id, clienteId, produtos, total, data)
 
-│   ├── utils/        # funções de leitura/escrita, geração de comprovantes
+Comprovantes TXT
 
-│   └── index.ts      # arquivo principal CLI
+`comprovantes/pedido_<ID>.txt` → detalha o pedido e total, ex.:
 
-├── comprovantes/     # arquivos .txt de pedidos
-
-├── node_modules/
-
-├── package.json
-
-├── tsconfig.json
-
-└── README.md
-
-
-🚀 Como Rodar
-
-1. Instalar dependências
-npm install
-
-2. Rodar o projeto
-npm run dev
-
-3. Navegar pelo menu CLI
-
-Opção 1: Cadastrar cliente
-
-Opção 2: Listar clientes
-
-Opção 3: Cadastrar produto
-
-Opção 4: Listar produtos
-
-Opção 5: Fazer pedido (gera comprovante .txt)
-
-Opção 6: Listar pedidos
-
-Opção 7: Relatório por dia
-
-Opção 8: Relatório por mês
-
-Opção 0: Sair
-
-
-📄 Exemplo de Comprovante
-
+```
 ===== COMPROVANTE DE COMPRA =====
-
 Pedido ID: 1727283546198
-
 Cliente: João Silva - Tel: 99999-9999
-
 Data: 2025-09-25T17:45:32.123Z
-
 Itens:
-
  - Pizza Margherita (R$ 29.90)
-   
  - Refrigerante Lata (R$ 5.00)
-   
 Total: R$ 34.90
-
 ===============================
+```
+
+## 🔧 Pré-requisitos
+
+* **Node.js 16+ (recomendado 18 ou 20)**
+
+* **npm**
+
+## 🚀 Instalação
+
+Na raiz do projeto (onde está o package.json):
+
+* `npm install`
 
 
-💡 Dicas de Uso
+Crie (ou confira) os scripts no package.json:
+```
+{
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  }
+}
+```
 
-Verifique se src/data/*.json existe (clientes.json, produtos.json, pedidos.json) com conteúdo [] vazio.
+tsconfig.json mínimo recomendado:
+```
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+```
 
-Comprovantes são salvos automaticamente em comprovantes/ com nome pedido_<ID>.txt.
+No VS Code, se aparecerem erros de tipos do Node, use Ctrl+Shift+P → TypeScript: Restart TS Server.
 
-IDs de clientes, produtos e pedidos são UUIDs únicos.
+## ▶️ Como Executar
 
-Sistema modular: fácil de expandir para interface web, promoções, formas de pagamento etc.
+Modo desenvolvimento (executa direto o TypeScript):
+
+* `npm run dev`
+
+## 🖥️ Uso (menu de console)
+
+Cadastrar cliente → informe nome e telefone.
+
+Listar clientes → exibe todos os clientes cadastrados.
+
+Cadastrar produto → informe nome, preço e categoria.
+
+Listar produtos → exibe todos os produtos cadastrados.
+
+Fazer pedido → informe ID do cliente e IDs dos produtos. O pedido será registrado e gerará automaticamente o comprovante em TXT.
+
+Listar pedidos → exibe todos os pedidos cadastrados.
+
+Relatório por dia → quantidade de pizzas vendidas em um dia específico.
+
+Relatório por mês → quantidade de pizzas vendidas em um mês específico.
+
+## 🧹 Limpeza / Reset
+
+Para reiniciar os dados, apague os arquivos JSON dentro de data/:
+
+* `rm -f data/*.json`
 
 
-📄 Licença
+(No Windows, apague manualmente os arquivos ou use del no PowerShell.)
 
-MIT License – veja arquivo LICENSE para detalhes.
+Os comprovantes permanecem em comprovantes/.
 
+## 💡 Observações
 
-📌 Autor
+IDs de clientes, produtos e pedidos são UUIDs, garantindo unicidade.
 
+Sistema modular e comentado para fácil expansão.
 
-Christian Simões – Projeto P1 – Ciência da Computação / Programação TypeScript
+Pode ser facilmente adaptado para interface web ou banco de dados real.
 
+Ideal para apresentação acadêmica ou estudo de TypeScript e CRUD.
 
+## 📌 Autor
+
+* Christian Dower Simões | RA: 2501871 | CCO 1/2B
 
